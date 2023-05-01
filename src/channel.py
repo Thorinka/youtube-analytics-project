@@ -23,6 +23,54 @@ class Channel:
         # channel_name: str, channel_description: str, channel_url: str,
         #                  subscribe_count: int, video_count: int, views_count: int
 
+    def __str__(self):
+        """
+        Возвращает информацию об объекте класса для пользователей в формате <название_канала> (<ссылка_на_канал>)
+        """
+        return f"{self.title} ({self.url})"
+
+    def __add__(self, other):
+        """
+        Возвращает сумму подписчиков subscribe_count двух объектов класса Channel
+        """
+        return int(self.subscribe_count) + int(other.subscribe_count)
+
+    def __sub__(self, other):
+        """
+        Возвращает разницу подписчиков subscribe_count двух объектов класса Channel
+        """
+        return int(self.subscribe_count) - int(other.subscribe_count)
+
+    def __gt__(self, other):
+        """
+        Возвращает True, если первый объект self больше объекта other
+        """
+        return int(self.subscribe_count) > int(other.subscribe_count)
+
+    def __ge__(self, other):
+        """
+        Возвращает True, если первый объект self больше или равен объекту other
+        """
+        return int(self.subscribe_count) >= int(other.subscribe_count)
+
+    def __lt__(self, other):
+        """
+        Возвращает True, если первый объект self меньше объекту other
+        """
+        return int(self.subscribe_count) < int(other.subscribe_count)
+
+    def __le__(self, other):
+        """
+        Возвращает True, если первый объект self меньше или равен объекту other
+        """
+        return int(self.subscribe_count) <= int(other.subscribe_count)
+
+    def __eq__(self, other):
+        """
+        Возвращает True, если первый объект self равен объекту other
+        """
+        return int(self.subscribe_count) == int(other.subscribe_count)
+
     def print_json(self, dict_to_print: dict) -> None:
         """Выводит словарь в json-подобном удобном формате с отступами"""
         print(json.dumps(dict_to_print, indent=2, ensure_ascii=False))
