@@ -20,8 +20,6 @@ class Channel:
         self.video_count = self.channel["items"][0]["statistics"]["videoCount"]
         self.views_count = self.channel["items"][0]["statistics"]["viewCount"]
 
-        # channel_name: str, channel_description: str, channel_url: str,
-        #                  subscribe_count: int, video_count: int, views_count: int
 
     def __str__(self):
         """
@@ -92,6 +90,3 @@ class Channel:
         with open(filename, "w", encoding="utf-8") as json_file:
             json_file.write(json.dumps(self.channel, indent=2, ensure_ascii=False))
 
-if __name__ == '__main__':
-    vdud = Channel('UCMCgOm8GZkHp8zJ6l7_hIuA')
-    print(vdud.to_json("json_file"))
