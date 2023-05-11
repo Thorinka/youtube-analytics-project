@@ -55,8 +55,3 @@ class PlayList():
             if video.likes_count == str(best_likes):
                 return video.video_url
 
-
-
-if __name__ == '__main__':
-    pl = PlayList('PLguYHBi01DWr4bRWc4uaguASmo7lW4GCb')
-    print(pl.show_best_video())
