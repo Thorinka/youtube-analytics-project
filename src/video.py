@@ -16,7 +16,7 @@ class Video:
                                            id=video_id).execute()
 
             self.video_name = self.video["items"][0]["snippet"]["title"]
-            self.video_url = f"https://www.youtube.com/channel/{self.__video_id}"
+            self.video_url = f"https://www.youtu.be/channel/{self.__video_id}"
             self.view_count = self.video["items"][0]["statistics"]["viewCount"]
             self.likes_count = self.video["items"][0]["statistics"]["likeCount"]
         except IndexError as err:
@@ -27,6 +27,7 @@ class Video:
             self.video_url = None
             self.view_count = None
             self.likes_count = None
+
 
 
 
@@ -45,4 +46,3 @@ class PLVideo(Video):
         """Экземпляр инициализирует id видео и плейлиста. Дальше все данные будут подтягиваться по API."""
         super().__init__(video_id)
         self.__playlist_id = playlist_id
-
